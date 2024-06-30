@@ -1,4 +1,4 @@
-using AutoMapper;
+sing AutoMapper;
 using FilmesWebApi.Data;
 using FilmesWebApi.Data.Dtos;
 using FilmesWebApi.Models;
@@ -27,22 +27,21 @@ public class FilmeController : ControllerBase
         Filme filme = _mapper.Map<Filme>(createFilmeDto);
         _context.Filmes.Add(filme);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(GetFilmeById), 
-            new {id = filme.Id}, 
-            filme);
+        return CreatedAtAction(nameof(GetFilmeById), new {id = filme.Id}, filme);
     }
 
     [HttpGet]
-    public IEnumerable<Filme> GetAllFilmes([FromQuery] int skip, [FromQuery] int take = 10)
+    public IEnumerable<ReadFilmeDto> GetAllFilmes([FromQuery] int skip, [FromQuery] int take = 10)
     {
-        return _context.Filmes.Skip(skip).Take(take);
+        return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take));
     }
 
     [HttpGet("{id}")]
     public IActionResult GetFilmeById(int Id)
     {
         var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);
-        return filme == null ? NotFound() : Ok(filme);
+        var filmeDto = _mapper.Map<ReadFilmeDto>(filme);
+        return filme == null ? NotFound() : Ok(filmeDto);
     }
 
     [HttpPut("{id}")]

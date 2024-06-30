@@ -108,3 +108,4 @@
 /home/joao.e.c/Documents/projects/dotnet/Alura/Cursoum/FilmesWebApi/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /home/joao.e.c/Documents/projects/dotnet/Alura/Cursoum/FilmesWebApi/bin/Debug/net8.0/Newtonsoft.Json.dll
 /home/joao.e.c/Documents/projects/dotnet/Alura/Cursoum/FilmesWebApi/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+/home/joao.e.c/Documents/projects/dotnet/Alura/Cursoum/FilmesWebApi/obj/Debug/net8.0/FilmesWebApi.sourcelink.json
